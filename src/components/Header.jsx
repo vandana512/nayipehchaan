@@ -14,13 +14,13 @@ export function Header() {
           </div>
           <h1 className="text-xl font-bold text-primary">NayiPehchaan</h1>
         </div>
-        
+
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</a>
           <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
           <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
         </nav>
-        
+
         <div className="flex items-center space-x-3">
           <Button variant="outline" onClick={() => navigate('/register/worker')} className="hidden sm:flex">
             <UserPlus className="w-4 h-4 mr-2" />

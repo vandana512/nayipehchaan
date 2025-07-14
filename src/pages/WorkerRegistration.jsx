@@ -6,7 +6,16 @@ import { Label } from "@/components/ui/label";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
-import { Upload, User, Calendar, MapPin, Phone, CreditCard, ArrowRight, ArrowLeft } from "lucide-react";
+import {
+  Upload,
+  User,
+  Calendar,
+  MapPin,
+  Phone,
+  CreditCard,
+  ArrowRight,
+  ArrowLeft,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function WorkerRegistration() {
@@ -19,24 +28,24 @@ export default function WorkerRegistration() {
     address: "",
     phoneNumber: "",
     aadharNumber: "",
-    profilePhoto: null as File | null
+    profilePhoto: null,
   });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleFileChange = (file: File | null) => {
-    setFormData(prev => ({ ...prev, profilePhoto: file }));
+  const handleFileChange = (file) => {
+    setFormData((prev) => ({ ...prev, profilePhoto: file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     toast({
       title: "Registration Successful!",
       description: "Your digital identity has been created. Welcome to NayiPehchaan!",
     });
-    navigate('/dashboard/worker');
+    navigate("/dashboard/worker");
   };
 
   const isStep1Valid = formData.fullName && formData.dateOfBirth && formData.phoneNumber;
@@ -45,9 +54,9 @@ export default function WorkerRegistration() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
       <div className="container mx-auto px-6 py-12">
         <div className="max-w-2xl mx-auto">
+          {/* Heading */}
           <div className="text-center space-y-4 mb-8">
             <h1 className="text-3xl font-bold text-primary">Create Your Worker Profile</h1>
             <p className="text-muted-foreground">
@@ -55,40 +64,56 @@ export default function WorkerRegistration() {
             </p>
           </div>
 
-          {/* Progress Steps */}
+          {/* Progress Bar */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center space-x-4">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 1 ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-              }`}>
-                1
-              </div>
-              <div className={`w-16 h-0.5 ${step >= 2 ? 'bg-primary' : 'bg-muted'}`}></div>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 2 ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-              }`}>
-                2
-              </div>
-              <div className={`w-16 h-0.5 ${step >= 3 ? 'bg-primary' : 'bg-muted'}`}></div>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 3 ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-              }`}>
-                3
-              </div>
+              {[1, 2, 3].map((s) => (
+                <div key={s} className="flex items-center space-x-4">
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                      step >= s ? "bg-primary text-white" : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {s}
+                  </div>
+                  {s < 3 && (
+                    <div
+                      className={`w-16 h-0.5 ${step > s ? "bg-primary" : "bg-muted"}`}
+                    ></div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
+          {/* Form */}
           <Card className="shadow-card-lg">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
-                {step === 1 && <><User className="w-5 h-5" /> <span>Personal Information</span></>}
-                {step === 2 && <><MapPin className="w-5 h-5" /> <span>Address & Identity</span></>}
-                {step === 3 && <><Upload className="w-5 h-5" /> <span>Profile Photo</span></>}
+                {step === 1 && (
+                  <>
+                    <User className="w-5 h-5" />
+                    <span>Personal Information</span>
+                  </>
+                )}
+                {step === 2 && (
+                  <>
+                    <MapPin className="w-5 h-5" />
+                    <span>Address & Identity</span>
+                  </>
+                )}
+                {step === 3 && (
+                  <>
+                    <Upload className="w-5 h-5" />
+                    <span>Profile Photo</span>
+                  </>
+                )}
               </CardTitle>
             </CardHeader>
-            
+
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Step 1 */}
                 {step === 1 && (
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -100,11 +125,10 @@ export default function WorkerRegistration() {
                         id="fullName"
                         placeholder="Enter your full name"
                         value={formData.fullName}
-                        onChange={(e) => handleInputChange('fullName', e.target.value)}
+                        onChange={(e) => handleInputChange("fullName", e.target.value)}
                         required
                       />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="dateOfBirth" className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
@@ -114,11 +138,10 @@ export default function WorkerRegistration() {
                         id="dateOfBirth"
                         type="date"
                         value={formData.dateOfBirth}
-                        onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
+                        onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
                         required
                       />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="phoneNumber" className="flex items-center space-x-2">
                         <Phone className="w-4 h-4" />
@@ -129,13 +152,14 @@ export default function WorkerRegistration() {
                         type="tel"
                         placeholder="+91 XXXXX XXXXX"
                         value={formData.phoneNumber}
-                        onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                        onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
                         required
                       />
                     </div>
                   </div>
                 )}
 
+                {/* Step 2 */}
                 {step === 2 && (
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -147,11 +171,10 @@ export default function WorkerRegistration() {
                         id="address"
                         placeholder="House No., Street, City, State, PIN Code"
                         value={formData.address}
-                        onChange={(e) => handleInputChange('address', e.target.value)}
+                        onChange={(e) => handleInputChange("address", e.target.value)}
                         required
                       />
                     </div>
-                    
                     <div className="space-y-2">
                       <Label htmlFor="aadharNumber" className="flex items-center space-x-2">
                         <CreditCard className="w-4 h-4" />
@@ -161,7 +184,7 @@ export default function WorkerRegistration() {
                         id="aadharNumber"
                         placeholder="XXXX XXXX XXXX"
                         value={formData.aadharNumber}
-                        onChange={(e) => handleInputChange('aadharNumber', e.target.value)}
+                        onChange={(e) => handleInputChange("aadharNumber", e.target.value)}
                         maxLength={12}
                         required
                       />
@@ -172,6 +195,7 @@ export default function WorkerRegistration() {
                   </div>
                 )}
 
+                {/* Step 3 */}
                 {step === 3 && (
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -218,6 +242,7 @@ export default function WorkerRegistration() {
                   </div>
                 )}
 
+                {/* Step Navigation */}
                 <div className="flex justify-between pt-6">
                   {step > 1 ? (
                     <Button
@@ -229,7 +254,7 @@ export default function WorkerRegistration() {
                       Previous
                     </Button>
                   ) : (
-                    <div></div>
+                    <div />
                   )}
 
                   {step < 3 ? (
@@ -237,8 +262,7 @@ export default function WorkerRegistration() {
                       type="button"
                       onClick={() => setStep(step + 1)}
                       disabled={
-                        (step === 1 && !isStep1Valid) ||
-                        (step === 2 && !isStep2Valid)
+                        (step === 1 && !isStep1Valid) || (step === 2 && !isStep2Valid)
                       }
                     >
                       Next
@@ -256,7 +280,6 @@ export default function WorkerRegistration() {
           </Card>
         </div>
       </div>
-      
       <Footer />
     </div>
   );

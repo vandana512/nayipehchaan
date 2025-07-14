@@ -16,7 +16,7 @@ export function Footer() {
               Empowering gig workers with verified digital identity and work history.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Platform</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -25,7 +25,7 @@ export function Footer() {
               <li><a href="#" className="hover:text-primary transition-colors">Verification</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -34,7 +34,7 @@ export function Footer() {
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -44,7 +44,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             © 2024 NayiPehchaan. All rights reserved.

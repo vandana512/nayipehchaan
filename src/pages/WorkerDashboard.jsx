@@ -9,32 +9,39 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { 
-  User, 
-  Plus, 
-  FileText, 
-  Calendar, 
-  Building2, 
-  Award, 
-  Upload,
-  MapPin,
-  Phone,
-  CheckCircle,
-  Clock,
-  Download
+  User, Plus, FileText, Calendar, Building2, Award, Upload,
+  MapPin, Phone, CheckCircle, Clock, Download
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 
 export default function WorkerDashboard() {
   const { toast } = useToast();
   const [isAddExperienceOpen, setIsAddExperienceOpen] = useState(false);
-  const [newExperience, setNewExperience] = useState({
+  const [newExperience, setNewExperience] = useState<ExperienceForm>({
     companyName: "",
     jobTitle: "",
     startDate: "",
     endDate: "",
     description: "",
-    certificate: null as File | null
+    certificate: null
   });
+
+  // TODO: Add UI for experience form dialog and experience list
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <div className="container mx-auto px-6 py-8">
+        <h1 className="text-2xl font-bold mb-4">Welcome, Worker</h1>
+        {/* Add experience button and dialog goes here */}
+        {/* List of experiences goes here */}
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+
 
   const workHistory = [
     {
@@ -321,4 +328,3 @@ export default function WorkerDashboard() {
       <Footer />
     </div>
   );
-}

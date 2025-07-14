@@ -77,7 +77,8 @@ export default function CompanyDashboard() {
     }
   ];
 
-  const handleVerifyWork = (verificationId: number, action: 'approve' | 'reject') => {
+  const handleVerifyWork = (verificationId, action) => {
+
     toast({
       title: action === 'approve' ? "Work Experience Verified!" : "Verification Rejected",
       description: action === 'approve' 

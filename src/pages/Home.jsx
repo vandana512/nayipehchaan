@@ -38,7 +38,7 @@ export default function Home() {
             <Button 
               size="lg" 
               onClick={() => navigate('/register/worker')}
-              className="bg-hero-gradient hover:opacity-90 text-white shadow-lg rounded-full px-8"
+              className="bg-hero-gradient hover:opacity-90 text-white shadow-lg rounded-full px-8 py-6"
             >
               <UserPlus className="w-5 h-5 mr-2" />
               Start as Worker
@@ -48,7 +48,7 @@ export default function Home() {
               size="lg" 
               variant="outline" 
               onClick={() => navigate('/register/company')}
-              className="rounded-full px-8"
+              className="rounded-full px-8 py-6"
             >
               <Building className="w-5 h-5 mr-2" />
               Join as Company

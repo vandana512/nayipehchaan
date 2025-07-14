@@ -14,6 +14,15 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+// Define the ExperienceForm interface
+interface ExperienceForm {
+  companyName: string;
+  jobTitle: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  certificate: File | null;
+}
 
 export default function WorkerDashboard() {
   const { toast } = useToast();
@@ -26,22 +35,6 @@ export default function WorkerDashboard() {
     description: "",
     certificate: null
   });
-
-  // TODO: Add UI for experience form dialog and experience list
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <div className="container mx-auto px-6 py-8">
-        <h1 className="text-2xl font-bold mb-4">Welcome, Worker</h1>
-        {/* Add experience button and dialog goes here */}
-        {/* List of experiences goes here */}
-      </div>
-      <Footer />
-    </div>
-  );
-
-
-
 
   const workHistory = [
     {
@@ -93,7 +86,7 @@ export default function WorkerDashboard() {
       description: "",
       certificate: null
     });
-
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -328,5 +321,4 @@ export default function WorkerDashboard() {
       <Footer />
     </div>
   );
-  }
 }

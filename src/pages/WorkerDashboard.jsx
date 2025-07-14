@@ -93,7 +93,7 @@ export default function WorkerDashboard() {
       description: "",
       certificate: null
     });
-  };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -328,3 +328,4 @@ export default function WorkerDashboard() {
       <Footer />
     </div>
   );
+  }

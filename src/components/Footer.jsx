@@ -1,4 +1,5 @@
-import { Heart } from "lucide-react";
+
+import { HeartHandshake } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-hero-gradient rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-hero-gradient rounded-full flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">NP</span>
               </div>
               <h3 className="text-lg font-bold text-primary">NayiPehchaan</h3>
@@ -50,7 +51,7 @@ export function Footer() {
             © 2024 NayiPehchaan. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center mt-2 sm:mt-0">
-            Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> for workers everywhere
+            Made with <HeartHandshake className="w-4 h-4 mx-1 text-red-500" /> for workers everywhere
           </p>
         </div>
       </div>

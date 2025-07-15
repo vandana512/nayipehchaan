@@ -75,7 +75,7 @@ export default function WorkerRegistration() {
                   placeholder="Enter your full name"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="rounded-full"
+                  className="rounded-full pl-6"
                 />
               </div>
 
@@ -89,7 +89,7 @@ export default function WorkerRegistration() {
                   type="date"
                   value={formData.dateOfBirth}
                   onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
-                  className="rounded-full"
+                  className="rounded-full pl-6"
                 />
               </div>
 
@@ -104,7 +104,7 @@ export default function WorkerRegistration() {
                   placeholder="Enter your complete address"
                   value={formData.address}
                   onChange={(e) => handleInputChange('address', e.target.value)}
-                  className="rounded-full"
+                  className="rounded-full pl-6"
                 />
               </div>
 
@@ -119,7 +119,7 @@ export default function WorkerRegistration() {
                   placeholder="Enter your phone number"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="rounded-full"
+                  className="rounded-full pl-6"
                 />
               </div>
             </div>

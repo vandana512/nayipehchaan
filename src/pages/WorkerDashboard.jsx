@@ -14,20 +14,10 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Define the ExperienceForm interface
-interface ExperienceForm {
-  companyName: string;
-  jobTitle: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-  certificate: File | null;
-}
-
 export default function WorkerDashboard() {
   const { toast } = useToast();
   const [isAddExperienceOpen, setIsAddExperienceOpen] = useState(false);
-  const [newExperience, setNewExperience] = useState<ExperienceForm>({
+  const [newExperience, setNewExperience] = useState({
     companyName: "",
     jobTitle: "",
     startDate: "",
